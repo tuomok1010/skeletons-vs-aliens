@@ -9,6 +9,8 @@ TagManager:
   - Cow
   - Player1Base
   - Player2Base
+  - Player1CablePoints
+  - Player2CablePoints
   layers:
   - Default
   - TransparentFX
