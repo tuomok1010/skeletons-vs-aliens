@@ -158,7 +158,7 @@ Rigidbody:
   m_GameObject: {fileID: 1797260187101096895}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -178,7 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampenFactor: 10
-  adjustFactor: 10
+  adjustFactor: 5
+  playerVehicle: {fileID: 1797260187208558084}
+  stablizingForce: 6
 --- !u!1 &1797260187208558084
 GameObject:
   m_ObjectHideFlags: 0
