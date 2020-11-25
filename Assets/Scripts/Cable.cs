@@ -39,26 +39,11 @@ public class Cable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateCablePoints();
-
         for (int i = 0; i < lengthOfLineRenderer; i++)
         {
             Vector3 pos = cablePoints[i].transform.position;
-            Debug.Log(pos);
             pointPositions[i] = pos;
         }
         cable.SetPositions(pointPositions);
-    }
-
-    void UpdateCablePoints()
-    {
-        if (playerNumber == 1)
-        {
-            cablePoints = GameObject.FindGameObjectsWithTag("Player1CablePoints");
-        }
-        if (playerNumber == 2)
-        {
-            cablePoints = GameObject.FindGameObjectsWithTag("Player2CablePoints");
-        }
     }
 }

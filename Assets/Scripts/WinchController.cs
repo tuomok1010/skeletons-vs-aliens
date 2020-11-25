@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class WinchController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    SpringJoint winch;
+    float winchLength;
+    float winchMaxLengh = 11f;
+    float reelOutSpeed = 10f;
+    float reelInSpeed = 5f;
+    void Awake()
     {
-        
+        if (winch == null)
+        {
+            winch = gameObject.GetComponent<SpringJoint>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButton("Fire3"))
+        {
+            winchLength += (reelOutSpeed * Time.deltaTime);
+        }
+        else
+        {
+            winchLength -= (reelInSpeed * Time.deltaTime);
+        }
+        winchLength = Mathf.Clamp(winchLength, 0f, winchMaxLengh);
+        winch.maxDistance = winchLength;
     }
 }
