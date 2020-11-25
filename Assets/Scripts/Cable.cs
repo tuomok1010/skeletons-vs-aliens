@@ -11,6 +11,8 @@ public class Cable : MonoBehaviour
     int lengthOfLineRenderer = 2;
     
     GameObject[] cablePoints;
+    Vector3[] pointPositions;
+    LineRenderer cable;
 
     void Start()
     {
@@ -18,32 +20,45 @@ public class Cable : MonoBehaviour
         {
             if (cablePoints == null)
             {
-                cablePoints = GameObject.FindGameObjectsWithTag("Player1Cables");
+                cablePoints = GameObject.FindGameObjectsWithTag("Player1CablePoints");
             }
         }
         if (playerNumber == 2)
         {
             if (cablePoints == null)
             {
-                cablePoints = GameObject.FindGameObjectsWithTag("Player2Cables");
+                cablePoints = GameObject.FindGameObjectsWithTag("Player2CablePoints");
             }
         }
 
-        LineRenderer cable = gameObject.GetComponent<LineRenderer>();
-        cable.positionCount = lengthOfLineRenderer;
-   
+        pointPositions = new Vector3[lengthOfLineRenderer];
+        cable = gameObject.GetComponent<LineRenderer>();
+        cable.positionCount = lengthOfLineRenderer; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        LineRenderer cable = gameObject.GetComponent<LineRenderer>();
-        var points = new Vector3[lengthOfLineRenderer];
+        UpdateCablePoints();
+
         for (int i = 0; i < lengthOfLineRenderer; i++)
         {
             Vector3 pos = cablePoints[i].transform.position;
-            points[i] = pos;
+            Debug.Log(pos);
+            pointPositions[i] = pos;
         }
-        cable.SetPositions(points);
-    } 
+        cable.SetPositions(pointPositions);
+    }
+
+    void UpdateCablePoints()
+    {
+        if (playerNumber == 1)
+        {
+            cablePoints = GameObject.FindGameObjectsWithTag("Player1CablePoints");
+        }
+        if (playerNumber == 2)
+        {
+            cablePoints = GameObject.FindGameObjectsWithTag("Player2CablePoints");
+        }
+    }
 }
