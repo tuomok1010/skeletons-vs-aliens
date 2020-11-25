@@ -20,7 +20,7 @@ public class WinchController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire3"))
+        if (Input.GetButton("Fire2"))
         {
             winchLength += (reelOutSpeed * Time.deltaTime);
         }
