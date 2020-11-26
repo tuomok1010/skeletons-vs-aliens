@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe33f78123e80de49ae60554d0db46b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dampenFactor: 10
-  adjustFactor: 5
+  dampenFactor: 1
+  adjustFactor: 1
   playerVehicle: {fileID: 1797260187208558084}
   stablizingForce: 6
 --- !u!1 &1797260187208558084
@@ -460,6 +460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3d15b347051074a82951bface904ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winchMaxLengh: 11
+  reelOutSpeed: 15
+  reelInSpeed: 10
 --- !u!114 &1797260187208558090
 MonoBehaviour:
   m_ObjectHideFlags: 0
