@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
-    [SerializeField] GameObject owner;
+    [SerializeField] GameManager.PlayerFaction faction;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!owner)
+        if(faction == GameManager.PlayerFaction.NONE)
         {
-            Debug.Log("Error! " + gameObject.name + " owner not set!");
+            Debug.Log("Warning! Player base faction set to NONE");
         }
     }
 
@@ -26,17 +26,13 @@ public class BaseController : MonoBehaviour
         if (other.gameObject.tag == "Cow")
         {
             NormalCow cow = other.gameObject.GetComponent<NormalCow>();
-            cow.isCaptured = true;
-            cow.baseOwner = owner;
+            if(!cow)
+            {
+                Debug.Log("Error! In BaseController.cs void OnTriggerEnter: NormalCow not found!");
+            }
 
-            if (owner.tag == "Player1")
-            {
-                GameManager.player1.score += cow.scoreValue;
-            }
-            else if (owner.tag == "Player2")
-            {
-                GameManager.player2.score += cow.scoreValue;
-            }
+            cow.capturedByFaction = faction;
+            GameManager.IncreaseScore(faction, cow.scoreValue);
         }
     }
 
@@ -45,21 +41,20 @@ public class BaseController : MonoBehaviour
         if (other.gameObject.tag == "Cow")
         {
             NormalCow cow = other.gameObject.GetComponent<NormalCow>();
-            cow.isCaptured = false;
-            cow.baseOwner = null;
-            if (owner.tag == "Player1")
+            if (!cow)
             {
-                GameManager.player1.score -= cow.scoreValue;
+                Debug.Log("Error! In BaseController.cs void OnTriggerExit: NormalCow not found!");
             }
-            else if (owner.tag == "Player2")
-            {
-                GameManager.player2.score -= cow.scoreValue;
-            }
+
+            cow.capturedByFaction = GameManager.PlayerFaction.NONE;
+
+            // NOTE: negative scoreValue reduces score instead of increasing
+            GameManager.IncreaseScore(faction, -cow.scoreValue);
         }
     }
 
-    public GameObject GetOwner()
+    public GameManager.PlayerFaction GetFaction()
     {
-        return owner;
+        return faction;
     }
 }

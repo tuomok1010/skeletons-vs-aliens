@@ -29,4 +29,11 @@ public class GameUIController : MonoBehaviour
         skeletonsScoreTMP.text = GameManager.GetPlayerScore(GameManager.PlayerFaction.SKELETONS).ToString();
         aliensScoreTMP.text = GameManager.GetPlayerScore(GameManager.PlayerFaction.ALIENS).ToString();
     }
+
+    public void DebugResetCowTestScene()
+    {
+        GameManager.skeletons.score = 0;
+        GameManager.aliens.score = 0;
+        GameManager.GoToScene(2);
+    }
 }
