@@ -36,7 +36,6 @@ public class HotCow : NormalCow
 
         hotCow = GetComponent<HotCow>();
 
-        // NOTE: fire effect must be the 2nd child of the parent!
         flamesEffect = transform.Find("FireEffect").gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
         if (!flamesEffect)
         {
@@ -54,6 +53,15 @@ public class HotCow : NormalCow
     void Update()
     {
         HandleDeath();
+
+        if (isFrozen)
+        {
+            timeElapsedFrozen += Time.deltaTime;
+            if (timeElapsedFrozen >= freezeTimeInSeconds)
+            {
+                Unfreeze();
+            }
+        }
 
         if (effectReady)
         {

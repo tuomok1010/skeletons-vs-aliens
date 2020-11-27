@@ -45,8 +45,17 @@ public class FreezingCow : NormalCow
     void Update()
     {
         HandleDeath();
-     
-        if(effectReady)
+
+        if (isFrozen)
+        {
+            timeElapsedFrozen += Time.deltaTime;
+            if (timeElapsedFrozen >= freezeTimeInSeconds)
+            {
+                Unfreeze();
+            }
+        }
+
+        if (effectReady)
         {
             if(capturedByFaction != GameManager.PlayerFaction.NONE)
             {

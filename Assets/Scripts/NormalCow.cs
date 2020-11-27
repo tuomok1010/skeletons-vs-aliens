@@ -13,15 +13,15 @@ public class NormalCow : MonoBehaviour
         CLOUD
     }
 
-    [SerializeField] public CowType type;
     [SerializeField] public int scoreValue;     // How much score the cow gives to the player when captured
-    [SerializeField] float freezeTimeInSeconds; // If the cow gets frozen, how long it takes until it becomes unfrozen again
-    [SerializeField] bool enableBlood;
-    [SerializeField] bool enableCollisionDamage;
-    [SerializeField] float collisionVelocityToDie;
-    [SerializeField] Material normalMaterial;
-    [SerializeField] Material frozenMaterial;
+    [SerializeField] protected float freezeTimeInSeconds; // If the cow gets frozen, how long it takes until it becomes unfrozen again
+    [SerializeField] protected bool enableBlood;
+    [SerializeField] protected bool enableCollisionDamage;
+    [SerializeField] protected float collisionVelocityToDie;
+    [SerializeField] protected Material normalMaterial;
+    [SerializeField] protected Material frozenMaterial;
 
+    public CowType type { get; set; }
     public bool isPickedUp { get; set; }        // is the cow currently picked up by the claw             
     public bool isFrozen { get; set; }
     public bool isDead { get; set; }
@@ -30,8 +30,7 @@ public class NormalCow : MonoBehaviour
 
     protected Rigidbody rb;
     protected ParticleSystem bloodEffect;
-
-    float timeElapsedFrozen = 0.0f;
+    protected float timeElapsedFrozen = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -113,7 +112,7 @@ public class NormalCow : MonoBehaviour
         timeElapsedFrozen = 0.0f;   // everytime a new freeze effect happens, timer starts from 0
     }
 
-    void Unfreeze()
+    public void Unfreeze()
     {
         GetComponent<MeshRenderer>().material = normalMaterial;
         isFrozen = false;
