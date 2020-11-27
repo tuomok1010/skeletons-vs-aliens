@@ -44,6 +44,7 @@ public class Cable : MonoBehaviour
             Vector3 pos = cablePoints[i].transform.position;
             pointPositions[i] = pos;
         }
+        System.Array.Reverse(pointPositions);
         cable.SetPositions(pointPositions);
     }
 }
