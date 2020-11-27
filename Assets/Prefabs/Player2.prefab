@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player2CablePoints
       objectReference: {fileID: 0}
+    - target: {fileID: 2076820915413339390, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2913790596895466040, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_Name
       value: Player2
