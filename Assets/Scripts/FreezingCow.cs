@@ -22,8 +22,7 @@ public class FreezingCow : NormalCow
             Debug.Log("Error! Could not find rigid body component on " + gameObject.name);
         }
 
-        // NOTE: blood effect must be the 1st child of the parent!
-        bloodEffect = transform.GetChild(1).GetComponent<ParticleSystem>();
+        bloodEffect = transform.Find("BloodEffect").gameObject.GetComponent<ParticleSystem>();
         if (!bloodEffect)
         {
             Debug.Log("Error! Could not find bloodEffect on " + gameObject.name);
@@ -31,11 +30,14 @@ public class FreezingCow : NormalCow
 
         freezingCow = gameObject.GetComponent<FreezingCow>();
 
-        // NOTE: frost effect must be the 2nd child of the parent!
-        frostEffect = transform.GetChild(2).GetComponent<ParticleSystem>();
+        frostEffect = transform.Find("FrostEffect").gameObject.GetComponent<ParticleSystem>();
         if (!frostEffect)
         {
             Debug.Log("Error! Could not find frostEffect on " + gameObject.name);
+        }
+        else
+        {
+            frostEffect.Play();
         }
     }
 
@@ -43,56 +45,42 @@ public class FreezingCow : NormalCow
     void Update()
     {
         HandleDeath();
-     
-        if(effectReady)
+
+        if (isFrozen)
         {
-            if (frostEffect.isStopped)
-                frostEffect.Play();
-
-            if(isPickedUp)
+            timeElapsedFrozen += Time.deltaTime;
+            if (timeElapsedFrozen >= freezeTimeInSeconds)
             {
-                effectReady = false;
-
-                if (clawOwner.tag == "Player1")
-                {
-                    GameObject ownerBase = GameObject.FindGameObjectWithTag("Player1Base");
-                    FreezeCowsInBase(ref ownerBase);
-                }
-                else if (clawOwner.tag == "Player2")
-                {
-                    GameObject ownerBase = GameObject.FindGameObjectWithTag("Player2Base");
-                    FreezeCowsInBase(ref ownerBase);
-                }
+                Unfreeze();
             }
         }
-        else
+
+        if (effectReady)
         {
-            frostEffect.Stop();
+            if(capturedByFaction != GameManager.PlayerFaction.NONE)
+            {
+                effectReady = false;
+                FreezeAllCowsBelongingToFaction(capturedByFaction);
+            }
         }
 
         if(cooldownTimeElapsed >= freezeAbilityCooldownInSeconds)
         {
             effectReady = true;
             cooldownTimeElapsed = 0.0f;
-            isPickedUp = false;
         }
 
         cooldownTimeElapsed += Time.deltaTime;
     }
 
-    void FreezeCowsInBase(ref GameObject baseToFreeze)
+    void FreezeAllCowsBelongingToFaction(GameManager.PlayerFaction faction)
     {
-        // TODO: instead of looping through all of the cows, find a better solution!
-
-        Debug.Log("Freezing all cows in base " + baseToFreeze.name);
-
-        GameObject baseOwner = baseToFreeze.GetComponent<BaseController>().GetOwner();
         GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
 
-        for(int i = 0; i < cows.Length; ++i)
+        for (int i = 0; i < cows.Length; ++i)
         {
             NormalCow cow = cows[i].GetComponent<NormalCow>();
-            if (cow.isCaptured && cow.baseOwner == baseOwner)
+            if(cow.capturedByFaction == faction)
             {
                 cow.Freeze();
             }

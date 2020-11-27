@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class HotCow : NormalCow
 {
-    [SerializeField] float speedAbilityCooldownInSeconds;
+    [System.Serializable] struct speedBoost
+    {
+        public float speedAbilityCooldownInSeconds;
+    }
+
+    [SerializeField] speedBoost speedBoostAbility;
 
     bool effectReady = true;
     float cooldownTimeElapsed = 0.0f;
@@ -23,23 +28,21 @@ public class HotCow : NormalCow
             Debug.Log("Error! Could not find rigid body component on " + gameObject.name);
         }
 
-        // NOTE: blood effect must be the 1st child of the parent!
-        bloodEffect = transform.GetChild(1).GetComponent<ParticleSystem>();
+        bloodEffect = transform.Find("BloodEffect").gameObject.GetComponent<ParticleSystem>();
         if (!bloodEffect)
         {
             Debug.Log("Error! Could not find bloodEffect on " + gameObject.name);
         }
 
-        hotCow = gameObject.GetComponent<HotCow>();
+        hotCow = GetComponent<HotCow>();
 
-        // NOTE: fire effect must be the 2nd child of the parent!
-        flamesEffect = transform.GetChild(2).transform.GetChild(0).GetComponent<ParticleSystem>();
+        flamesEffect = transform.Find("FireEffect").gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
         if (!flamesEffect)
         {
             Debug.Log("Error! Could not find flamesEffect on " + gameObject.name);
         }
 
-        emberEffect = transform.GetChild(2).transform.GetChild(1).GetComponent<ParticleSystem>();
+        emberEffect = transform.Find("FireEffect").gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
         if (!emberEffect)
         {
             Debug.Log("Error! Could not find emberEffect on " + gameObject.name);
@@ -50,6 +53,15 @@ public class HotCow : NormalCow
     void Update()
     {
         HandleDeath();
+
+        if (isFrozen)
+        {
+            timeElapsedFrozen += Time.deltaTime;
+            if (timeElapsedFrozen >= freezeTimeInSeconds)
+            {
+                Unfreeze();
+            }
+        }
 
         if (effectReady)
         {
@@ -62,8 +74,20 @@ public class HotCow : NormalCow
             if (isPickedUp)
             {
                 effectReady = false;
-                GameObject player = clawOwner;
-                GiveSpeedBoost(ref player);
+
+                if (clawOwner)
+                {
+                    PlayerEffectController playerEffectController = clawOwner.GetComponent<PlayerEffectController>();
+
+                    if (playerEffectController)
+                        playerEffectController.EnableSpeedBoost();
+                    else
+                        Debug.Log("Error! HotCow.cs in function void Update(): Could not find PlayerEffectController");
+                }
+                else
+                {
+                    Debug.Log("Error! HotCow.cs void Update(): clawOwner not set!");
+                }
             }
         }
         else
@@ -72,18 +96,12 @@ public class HotCow : NormalCow
             emberEffect.Stop();
         }
 
-        if (cooldownTimeElapsed >= speedAbilityCooldownInSeconds)
+        if (cooldownTimeElapsed >= speedBoostAbility.speedAbilityCooldownInSeconds)
         {
             effectReady = true;
             cooldownTimeElapsed = 0.0f;
-            isPickedUp = false;
         }
 
         cooldownTimeElapsed += Time.deltaTime;
-    }
-
-    void GiveSpeedBoost(ref GameObject player)
-    {
-
     }
 }

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public enum PlayerFaction
     {
+        NONE = 0,
         SKELETONS = 1,
         ALIENS = 2
     }
@@ -25,14 +26,14 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameState gameState;
-    public static PlayerInfo player1;
-    public static PlayerInfo player2;
+    public static PlayerInfo skeletons;
+    public static PlayerInfo aliens;
 
     private void Awake()
     {
         gameState = GameState.MENU;
-        player1.score = 0;
-        player2.score = 0;
+        skeletons.score = 0;
+        aliens.score = 0;
     }
 
     // Start is called before the first frame update
@@ -77,16 +78,26 @@ public class GameManager : MonoBehaviour
     {
         if (player == PlayerFaction.SKELETONS)
         {
-            return player1.score;
+            return skeletons.score;
         }
         else if (player == PlayerFaction.ALIENS)
         {
-            return player2.score;
+            return aliens.score;
         }
         else
         {
             Debug.Log("Error! GetPlayerScore(): Invalid faction!");
             return -1;
         }
+    }
+
+    public static void IncreaseScore(PlayerFaction player, int amount)
+    {
+        if (player == PlayerFaction.SKELETONS)
+            skeletons.score += amount;
+        else if (player == PlayerFaction.ALIENS)
+            aliens.score += amount;
+        else
+            Debug.Log("Error! IncreaseScore(): Invalid faction!");
     }
 }

@@ -7,9 +7,9 @@ public class WinchController : MonoBehaviour
     
     SpringJoint winch;
     float winchLength;
-    float winchMaxLengh = 11f;
-    float reelOutSpeed = 10f;
-    float reelInSpeed = 5f;
+    [SerializeField] float winchMaxLengh = 11f;
+    [SerializeField] float reelOutSpeed = 10f;
+    [SerializeField] float reelInSpeed = 5f;
     void Awake()
     {
         if (winch == null)
