@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1797260187208558092, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e711c22310dbad4d9916b77e478075d, type: 2}
+    - target: {fileID: 1797260187208558092, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1797260187208558093, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
@@ -34,6 +42,10 @@ PrefabInstance:
     - target: {fileID: 1797260187376722129, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_TagString
       value: Player2CablePoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797260188250305515, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 1797260188250305516, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_TagString
