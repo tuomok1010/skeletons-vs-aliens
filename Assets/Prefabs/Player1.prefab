@@ -390,7 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winchMaxLengh: 11
   reelOutSpeed: 15
-  reelInSpeed: 10
+  reelInSpeed: 15
 --- !u!114 &1797260187208558090
 MonoBehaviour:
   m_ObjectHideFlags: 0

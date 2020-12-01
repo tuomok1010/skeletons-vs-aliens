@@ -34,6 +34,6 @@ public class GameUIController : MonoBehaviour
     {
         GameManager.skeletons.score = 0;
         GameManager.aliens.score = 0;
-        GameManager.GoToScene(2);
+        GameManager.RestartScene();
     }
 }
