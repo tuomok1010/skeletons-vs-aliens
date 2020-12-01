@@ -7,8 +7,9 @@ public class NitroCow : NormalCow
     [System.Serializable] struct ExplosionEffect
     {
         public float explosionForce;
-        public float upwardsForceModifier;
-        public float explosionSensitivity; // NOTE: this will overwrite collisionVelocityToDie
+        public float explosionRadius;
+        public float upwardsForceModifier;   
+        public float explosionSensitivity;  // NOTE: this will overwrite collisionVelocityToDie, smaller value = explodes easier
     }
 
     [SerializeField] ExplosionEffect explosionEffect;
@@ -16,7 +17,6 @@ public class NitroCow : NormalCow
     ParticleSystem fireballEffect;
     ParticleSystem sparksEffect;
     NitroCow nitroCow;
-    Transform explosionArea;
 
     // Start is called before the first frame update
     void Start()
@@ -49,17 +49,6 @@ public class NitroCow : NormalCow
         if (!sparksEffect)
         {
             Debug.Log("Error! Could not find sparksEffect on " + gameObject.name);
-        }
-
-        explosionArea = transform.parent.Find("ExplosionForceArea").gameObject.transform;
-        if(!explosionArea)
-        {
-            Debug.Log("Error! Could not find ExplosionForceArea on " + gameObject.name);
-        }
-        else if (explosionArea.transform.localScale.x != explosionArea.transform.localScale.y &&
-            explosionArea.transform.localScale.x != explosionArea.transform.localScale.z)
-        {
-            Debug.Log("Warning! ExplosionForceArea should be a perfect sphere!");
         }
     }
 
@@ -98,6 +87,15 @@ public class NitroCow : NormalCow
         }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        if(isDead)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position, explosionEffect.explosionRadius);
+        }
+    }
+
     public new void HandleDeath()
     {
         if (isDead && bloodEffect.isStopped && fireballEffect.isStopped && sparksEffect.isStopped)
@@ -116,7 +114,7 @@ public class NitroCow : NormalCow
 
     void Explode()
     {
-        Collider[] objects = Physics.OverlapSphere(explosionArea.position, explosionArea.localScale.x);
+        Collider[] objects = Physics.OverlapSphere(gameObject.transform.position, explosionEffect.explosionRadius);
 
         for(int i = 0; i < objects.Length; ++i)
         {
@@ -125,8 +123,8 @@ public class NitroCow : NormalCow
             {
                 if(objectRb != rb)
                 {
-                    objectRb.AddExplosionForce(explosionEffect.explosionForce, explosionArea.position,
-                        explosionArea.localScale.x, explosionEffect.upwardsForceModifier);
+                    objectRb.AddExplosionForce(explosionEffect.explosionForce, gameObject.transform.position,
+                        explosionEffect.explosionRadius, explosionEffect.upwardsForceModifier);
                 }
             }
         }

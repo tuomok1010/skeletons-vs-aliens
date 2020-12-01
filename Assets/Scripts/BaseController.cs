@@ -31,7 +31,12 @@ public class BaseController : MonoBehaviour
                 Debug.Log("Error! In BaseController.cs void OnTriggerEnter: NormalCow not found!");
             }
 
+            if (cow.capturedByFaction == faction)
+                return;
+
+            Debug.Log("Player " + faction + " score increased by " + cow.scoreValue);
             cow.capturedByFaction = faction;
+
             GameManager.IncreaseScore(faction, cow.scoreValue);
         }
     }
@@ -46,10 +51,14 @@ public class BaseController : MonoBehaviour
                 Debug.Log("Error! In BaseController.cs void OnTriggerExit: NormalCow not found!");
             }
 
-            cow.capturedByFaction = GameManager.PlayerFaction.NONE;
+            if(cow.capturedByFaction == faction)
+            {
+                Debug.Log("Player " + cow.capturedByFaction + " score decreased by " + cow.scoreValue);
+                cow.capturedByFaction = GameManager.PlayerFaction.NONE;
 
-            // NOTE: negative scoreValue reduces score instead of increasing
-            GameManager.IncreaseScore(faction, -cow.scoreValue);
+                // NOTE: negative scoreValue reduces score instead of increasing
+                GameManager.IncreaseScore(faction, -cow.scoreValue);
+            }
         }
     }
 

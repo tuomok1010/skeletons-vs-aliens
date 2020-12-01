@@ -20,7 +20,7 @@ public class PlayerEffectController : MonoBehaviour
     float playerOldSpeed;
     float playerOldAcceleration;
 
-    bool hasSpeedBoost = false;
+    public bool hasSpeedBoost = false;
     float timeElapsedInSpeedEffect = 0.0f;
 
     // Start is called before the first frame update
@@ -71,9 +71,13 @@ public class PlayerEffectController : MonoBehaviour
         timeElapsedInSpeedEffect = 0.0f;
         hasSpeedBoost = true;
 
-        CM.maxLateralSpeed *= speedEffectsSettings.speedEffectMultiplier;
         BCC.speed *= speedEffectsSettings.speedEffectMultiplier;
         BCC.acceleration *= speedEffectsSettings.speedEffectMultiplier;
+
+        if (CM.maxLateralSpeed < BCC.speed)
+            CM.maxLateralSpeed = BCC.speed;
+
+        Debug.Log(gameObject.name + " enabled speed boost! New speed: " + BCC.speed + " New max speed: " + CM.maxLateralSpeed);
 
         for (int i = 0; i < speedEffects.Length; ++i)
             speedEffects[i].enabled = true;
@@ -87,6 +91,8 @@ public class PlayerEffectController : MonoBehaviour
         CM.maxLateralSpeed = playerOldMaxLateralSpeed;
         BCC.speed = playerOldSpeed;
         BCC.acceleration = playerOldAcceleration;
+
+        Debug.Log(gameObject.name + " disabled speed boost! New speed: " + BCC.speed + " New max speed: " + CM.maxLateralSpeed);
 
         for (int i = 0; i < speedEffects.Length; ++i)
             speedEffects[i].enabled = false;

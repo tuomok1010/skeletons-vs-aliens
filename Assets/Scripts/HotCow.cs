@@ -79,7 +79,7 @@ public class HotCow : NormalCow
                 {
                     PlayerEffectController playerEffectController = clawOwner.GetComponent<PlayerEffectController>();
 
-                    if (playerEffectController)
+                    if (playerEffectController && !playerEffectController.hasSpeedBoost)
                         playerEffectController.EnableSpeedBoost();
                     else
                         Debug.Log("Error! HotCow.cs in function void Update(): Could not find PlayerEffectController");
