@@ -148,15 +148,15 @@ GameObject:
   - component: {fileID: 1797260187208558080}
   - component: {fileID: 1797260187208558081}
   - component: {fileID: 1797260187208558082}
-  - component: {fileID: 1797260187208558083}
   - component: {fileID: 1797260187208558093}
   - component: {fileID: 1797260187208558092}
   - component: {fileID: 1797260187208558091}
   - component: {fileID: 1797260187208558090}
   - component: {fileID: 4121312267241073722}
+  - component: {fileID: 249653136787712109}
   m_Layer: 0
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,38 +255,6 @@ MonoBehaviour:
   _slideGravityMultiplier: 1
   _snapToGround: 1
   _snapStrength: 0.5
---- !u!114 &1797260187208558083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797260187208558084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ca60fcb1c82ff4e90a3d2ba9e485e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 25
-  _angularSpeed: 135
-  _acceleration: 50
-  _deceleration: 10
-  _groundFriction: 1
-  _useBrakingFriction: 0
-  _brakingFriction: 8
-  _airFriction: 0
-  _airControl: 0.2
-  _canCrouch: 0
-  _standingHeight: 2
-  _crouchingHeight: 1
-  _baseJumpHeight: 1.5
-  _extraJumpTime: 0.5
-  _extraJumpPower: 25
-  _jumpPreGroundedToleranceTime: 0.15
-  _jumpPostGroundedToleranceTime: 0.15
-  _maxMidAirJumps: 0
-  _useRootMotion: 0
-  _rootMotionRotation: 0
 --- !u!145 &1797260187208558093
 SpringJoint:
   m_ObjectHideFlags: 0
@@ -452,6 +420,39 @@ MonoBehaviour:
   speedEffectsSettings:
     speedEffectDuration: 10
     speedEffectMultiplier: 3
+  hasSpeedBoost: 0
+--- !u!114 &249653136787712109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797260187208558084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd223dd49ccc6247ab71df47e75eede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 25
+  _angularSpeed: 135
+  _acceleration: 100
+  _deceleration: 10
+  _groundFriction: 1
+  _useBrakingFriction: 0
+  _brakingFriction: 8
+  _airFriction: 0
+  _airControl: 0.2
+  _canCrouch: 0
+  _standingHeight: 2
+  _crouchingHeight: 1
+  _baseJumpHeight: 1.5
+  _extraJumpTime: 0.5
+  _extraJumpPower: 25
+  _jumpPreGroundedToleranceTime: 0.15
+  _jumpPostGroundedToleranceTime: 0.15
+  _maxMidAirJumps: 1
+  _useRootMotion: 0
+  _rootMotionRotation: 0
 --- !u!1 &1797260187376722129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1054,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1797260187101096894}
     m_Modifications:
+    - target: {fileID: 98293601447576475, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6175112907247871088, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
       propertyPath: m_Name
       value: ClawFinger (2)
@@ -1115,6 +1120,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1797260187101096894}
     m_Modifications:
+    - target: {fileID: 98293601447576475, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6175112907247871088, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
       propertyPath: m_Name
       value: ClawFinger (3)
@@ -1185,6 +1194,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1797260187101096894}
     m_Modifications:
+    - target: {fileID: 98293601447576475, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6175112907247871088, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
       propertyPath: m_Name
       value: ClawFinger (1)
@@ -1321,6 +1334,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1797260187101096894}
     m_Modifications:
+    - target: {fileID: 98293601447576475, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6175112907247871088, guid: 69a17974dc3dd624bb8b6d6c4f1151cb, type: 3}
       propertyPath: m_Name
       value: ClawFinger

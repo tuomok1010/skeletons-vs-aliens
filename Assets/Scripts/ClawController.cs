@@ -20,20 +20,37 @@ public class ClawController : MonoBehaviour
     void Update()
     {
         currentClawWeight = anim.GetLayerWeight(1);
-
-        if (Input.GetButton("Fire1") && (!clawOpen))
+        if (gameObject.tag=="Player1")
         {
-            
-            //anim.SetLayerWeight(1, newClawWeight);
-            clawWeightTarget = 1f;
-            clawOpen = true;
+            if (Input.GetButton("P1Claw") && (!clawOpen))
+            {
+                
+                //anim.SetLayerWeight(1, newClawWeight);
+                clawWeightTarget = 1f;
+                clawOpen = true;
+            }
+            if (!Input.GetButton("P1Claw") && (clawOpen))
+            {
+                //anim.SetLayerWeight(1, newClawWeight);
+                clawWeightTarget = 0f;
+                clawOpen = false;
+            }
         }
-
-        if (!Input.GetButton("Fire1") && (clawOpen))
+        if (gameObject.tag=="Player2")
         {
-            //anim.SetLayerWeight(1, newClawWeight);
-            clawWeightTarget = 0f;
-            clawOpen = false;
+            if (Input.GetButton("P2Claw") && (!clawOpen))
+            {
+                
+                //anim.SetLayerWeight(1, newClawWeight);
+                clawWeightTarget = 1f;
+                clawOpen = true;
+            }
+            if (!Input.GetButton("P2Claw") && (clawOpen))
+            {
+                //anim.SetLayerWeight(1, newClawWeight);
+                clawWeightTarget = 0f;
+                clawOpen = false;
+            }
         }
         MoveClaw();
     }

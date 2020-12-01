@@ -20,15 +20,31 @@ public class WinchController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire2"))
+        if (gameObject.tag=="Player1")
         {
-            winchLength += (reelOutSpeed * Time.deltaTime);
+            if (Input.GetButton("P1Winch"))
+            {
+                winchLength += (reelOutSpeed * Time.deltaTime);
+            }
+            else
+            {
+                winchLength -= (reelInSpeed * Time.deltaTime);
+            }
+            winchLength = Mathf.Clamp(winchLength, 0f, winchMaxLengh);
+            winch.maxDistance = winchLength;
         }
-        else
+        if (gameObject.tag=="Player2")
         {
-            winchLength -= (reelInSpeed * Time.deltaTime);
+            if (Input.GetButton("P2Winch"))
+            {
+                winchLength += (reelOutSpeed * Time.deltaTime);
+            }
+            else
+            {
+                winchLength -= (reelInSpeed * Time.deltaTime);
+            }
+            winchLength = Mathf.Clamp(winchLength, 0f, winchMaxLengh);
+            winch.maxDistance = winchLength;
         }
-        winchLength = Mathf.Clamp(winchLength, 0f, winchMaxLengh);
-        winch.maxDistance = winchLength;
     }
 }

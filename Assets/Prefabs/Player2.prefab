@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1797260187208558084, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
     - target: {fileID: 1797260187208558090, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: playerNumber
       value: 2
@@ -50,6 +54,18 @@ PrefabInstance:
     - target: {fileID: 1797260188250305516, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_TagString
       value: Player2CablePoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849874558353318083, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849874558553442150, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849874558829913455, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 2076820915413339390, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_IsActive
@@ -122,6 +138,10 @@ PrefabInstance:
     - target: {fileID: 4555088989163575067, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831616249595592121, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 4881337759071874547, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_Enabled
