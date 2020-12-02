@@ -21,9 +21,9 @@ MonoBehaviour:
   frozenMaterial: {fileID: 2100000, guid: d18643c5372d2dd47b2311c6e5f07a7b, type: 2}
   explosionEffect:
     explosionForce: 1000
-    explosionRadius: 35
+    explosionRadius: 25
     upwardsForceModifier: 25
-    explosionSensitivity: 10
+    explosionSensitivity: 5
 --- !u!1001 &1419245322984772146
 PrefabInstance:
   m_ObjectHideFlags: 0
