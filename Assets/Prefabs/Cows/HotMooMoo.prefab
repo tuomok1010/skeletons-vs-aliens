@@ -28,7 +28,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3814b0a409bd19b42a33fe258a96a459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
   scoreValue: 10
   freezeTimeInSeconds: 10
   enableBlood: 0
