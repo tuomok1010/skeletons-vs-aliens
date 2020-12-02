@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 1797260187208558090}
   - component: {fileID: 4121312267241073722}
   - component: {fileID: 249653136787712109}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Boat
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4097
   _groundLimit: 60
   _stepOffset: 0.5
   _ledgeOffset: 0
@@ -654,7 +654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5018574469482947464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797260187208558094}

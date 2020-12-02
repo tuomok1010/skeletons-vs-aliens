@@ -546,7 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109342106948871019}
   - component: {fileID: 109342106948871018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UfoCollisionPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

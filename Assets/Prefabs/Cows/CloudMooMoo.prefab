@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!75 &3253820574852711344
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907542381547659161}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 8, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &7506154445964797839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 39495529, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_Mass
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 39495529, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_Constraints
@@ -121,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
       propertyPath: moveWithTransform
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
       propertyPath: RotationModule.enabled
@@ -145,11 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2772541932296364820, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2772541932296364820, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0039
+      value: 0.0062
       objectReference: {fileID: 0}
     - target: {fileID: 2772541932296364820, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
       propertyPath: m_LocalRotation.w
