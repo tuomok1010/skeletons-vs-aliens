@@ -419,7 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedEffectsSettings:
     speedEffectDuration: 10
-    speedEffectMultiplier: 3
+    speedEffectMultiplier: 2
   hasSpeedBoost: 0
 --- !u!114 &249653136787712109
 MonoBehaviour:
