@@ -77,7 +77,7 @@ public class PlayerEffectController : MonoBehaviour
         if (CM.maxLateralSpeed < BCC.speed)
             CM.maxLateralSpeed = BCC.speed;
 
-        Debug.Log(gameObject.name + " enabled speed boost! New speed: " + BCC.speed + " New max speed: " + CM.maxLateralSpeed);
+        //Debug.Log(gameObject.name + " enabled speed boost! New speed: " + BCC.speed + " New max speed: " + CM.maxLateralSpeed);
 
         for (int i = 0; i < speedEffects.Length; ++i)
             speedEffects[i].enabled = true;
@@ -92,7 +92,7 @@ public class PlayerEffectController : MonoBehaviour
         BCC.speed = playerOldSpeed;
         BCC.acceleration = playerOldAcceleration;
 
-        Debug.Log(gameObject.name + " disabled speed boost! New speed: " + BCC.speed + " New max speed: " + CM.maxLateralSpeed);
+        //Debug.Log(gameObject.name + " disabled speed boost! New speed: " + BCC.speed + " New max speed: " + CM.maxLateralSpeed);
 
         for (int i = 0; i < speedEffects.Length; ++i)
             speedEffects[i].enabled = false;

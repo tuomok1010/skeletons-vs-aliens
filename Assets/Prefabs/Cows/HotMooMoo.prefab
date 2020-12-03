@@ -44,9 +44,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3312099482325907292}
     m_Modifications:
+    - target: {fileID: 1081708459117445835, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1145850143514972674, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
       propertyPath: m_Name
       value: FireEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5631874258567831407, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6780008326863915798, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
       propertyPath: m_RootOrder
@@ -70,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6780008326863915798, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0023099992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6780008326863915798, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00413
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6780008326863915798, guid: d7db6c85ba6e7224bbc5acef3e84e654, type: 3}
       propertyPath: m_LocalRotation.w
@@ -123,15 +131,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3689213470252811989, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6963747
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3689213470252811989, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3689213470252811989, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.600212
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3689213470252811989, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_LocalRotation.w

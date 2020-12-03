@@ -127,26 +127,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloudEffect
       objectReference: {fileID: 0}
-    - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
-      propertyPath: simulationSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
-      propertyPath: RotationModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
-      propertyPath: RotationModule.curve.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1385342458466643960, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
-      propertyPath: RotationModule.separateAxes
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2772541932296364820, guid: 3157367805a5e424cb8983bed3d58a16, type: 3}
       propertyPath: m_RootOrder
       value: 3

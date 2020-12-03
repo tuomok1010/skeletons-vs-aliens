@@ -34,7 +34,7 @@ public class BaseController : MonoBehaviour
             if (cow.capturedByFaction == faction)
                 return;
 
-            Debug.Log("Player " + faction + " score increased by " + cow.scoreValue);
+            //Debug.Log("Player " + faction + " score increased by " + cow.scoreValue);
             cow.capturedByFaction = faction;
 
             GameManager.IncreaseScore(faction, cow.scoreValue);
@@ -53,7 +53,7 @@ public class BaseController : MonoBehaviour
 
             if(cow.capturedByFaction == faction)
             {
-                Debug.Log("Player " + cow.capturedByFaction + " score decreased by " + cow.scoreValue);
+                //Debug.Log("Player " + cow.capturedByFaction + " score decreased by " + cow.scoreValue);
                 cow.capturedByFaction = GameManager.PlayerFaction.NONE;
 
                 // NOTE: negative scoreValue reduces score instead of increasing
