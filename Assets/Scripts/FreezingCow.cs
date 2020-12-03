@@ -30,7 +30,7 @@ public class FreezingCow : NormalCow
 
         freezingCow = gameObject.GetComponent<FreezingCow>();
 
-        frostEffect = transform.Find("FrostEffect").gameObject.GetComponent<ParticleSystem>();
+/*         frostEffect = transform.Find("FrostEffect").gameObject.GetComponent<ParticleSystem>();
         if (!frostEffect)
         {
             Debug.Log("Error! Could not find frostEffect on " + gameObject.name);
@@ -38,7 +38,7 @@ public class FreezingCow : NormalCow
         else
         {
             frostEffect.Play();
-        }
+        } */
     }
 
     // Update is called once per frame
