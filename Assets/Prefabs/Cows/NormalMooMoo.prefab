@@ -140,6 +140,18 @@ MonoBehaviour:
   collisionVelocityToDie: 10
   normalMaterial: {fileID: 2100000, guid: 0ab3fc28658ffaf4590429fab35f8d00, type: 2}
   frozenMaterial: {fileID: 2100000, guid: d18643c5372d2dd47b2311c6e5f07a7b, type: 2}
+--- !u!114 &8473953707197553540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4949436740874253144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29e719c943f2da4db3bb93ffb57e865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6367542006560794630
 GameObject:
   m_ObjectHideFlags: 0
