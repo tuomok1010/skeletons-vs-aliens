@@ -22,6 +22,10 @@ public class NitroCow : NormalCow
     void Start()
     {
         type = CowType.NITRO;
+        capturedByFaction = GameManager.PlayerFaction.NONE;
+        isPickedUp = false;
+        isFrozen = false;
+        isDead = false;
         enableCollisionDamage = true;
         collisionVelocityToDie = explosionEffect.explosionSensitivity;
 
@@ -87,15 +91,6 @@ public class NitroCow : NormalCow
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if(isDead)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(transform.position, explosionEffect.explosionRadius);
-        }
-    }
-
     public new void HandleDeath()
     {
         if (isDead && bloodEffect.isStopped && fireballEffect.isStopped && sparksEffect.isStopped)
@@ -121,6 +116,11 @@ public class NitroCow : NormalCow
             Rigidbody objectRb = objects[i].GetComponent<Rigidbody>();
             if(objectRb)
             {
+                // NOTE: CowRotator.cs manipulates constraints. We need to make sure there are no constraints
+                // when the cow is about to take explosion force
+                if(objectRb.gameObject.tag == "Cow")
+                    objectRb.constraints = RigidbodyConstraints.None;
+
                 if(objectRb != rb)
                 {
                     objectRb.AddExplosionForce(explosionEffect.explosionForce, gameObject.transform.position,

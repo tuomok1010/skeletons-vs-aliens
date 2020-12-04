@@ -11,6 +11,8 @@ TagManager:
   - Player2Base
   - Player1CablePoints
   - Player2CablePoints
+  - Ground
+  - Claw
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - CowHookCollision
   - Vehicle
   - Player
-  - 
+  - Ground
   - 
   - 
   - 
