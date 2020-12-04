@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Pazi_201201.unity
+    guid: 69074fbeb618c734881ddf865583b59e
+  - enabled: 0
     path: Assets/Scenes/Preload.unity
     guid: 5a7f6e35ffd0ab3458a7daf8ffdd2442
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 130165abba50f6244b20212ebe2370f4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CowTestScene.unity
     guid: 4148a9efb06f1274d8c6403c34feae88
   m_configObjects: {}
