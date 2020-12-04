@@ -21,6 +21,10 @@ public class HotCow : NormalCow
     void Start()
     {
         type = CowType.HOT;
+        capturedByFaction = GameManager.PlayerFaction.NONE;
+        isPickedUp = false;
+        isFrozen = false;
+        isDead = false;
 
         rb = GetComponent<Rigidbody>();
         if (!rb)
