@@ -17,15 +17,18 @@ public class HotCow : NormalCow
     ParticleSystem flamesEffect;
     ParticleSystem emberEffect;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         type = CowType.HOT;
         capturedByFaction = GameManager.PlayerFaction.NONE;
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {

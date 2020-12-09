@@ -152,6 +152,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29e719c943f2da4db3bb93ffb57e865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9025712241071057619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4949436740874253144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c876f53ba792547b9383f808351801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSettings:
+    minHopsPerDirection: 3
+    maxHopsPerDirection: 10
+    minTurnRotationInDegrees: 0
+    maxTurnRotationInDegrees: 220
 --- !u!1 &6367542006560794630
 GameObject:
   m_ObjectHideFlags: 0

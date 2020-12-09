@@ -18,8 +18,7 @@ public class NitroCow : NormalCow
     ParticleSystem sparksEffect;
     NitroCow nitroCow;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         type = CowType.NITRO;
         capturedByFaction = GameManager.PlayerFaction.NONE;
@@ -28,7 +27,11 @@ public class NitroCow : NormalCow
         isDead = false;
         enableCollisionDamage = true;
         collisionVelocityToDie = explosionEffect.explosionSensitivity;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {

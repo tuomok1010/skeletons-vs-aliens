@@ -9,15 +9,18 @@ public class CloudCow : NormalCow
     ParticleSystem cloudEffect;
     Quaternion originalParticleRotation;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         type = CowType.CLOUD;
         capturedByFaction = GameManager.PlayerFaction.NONE;
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {

@@ -32,15 +32,18 @@ public class NormalCow : MonoBehaviour
     protected ParticleSystem bloodEffect;
     protected float timeElapsedFrozen = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         type = CowType.NORMAL;
         capturedByFaction = GameManager.PlayerFaction.NONE;
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         if(!rb)
         {

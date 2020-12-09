@@ -9,8 +9,8 @@ public class CowRotator : MonoBehaviour
 {
     Rigidbody rb;
     NormalCow cow;
-    bool isCollidingWithClaw = false;
-    bool isStandingUp = false;
+    public bool isCollidingWithClaw { get; set; } = false;
+    public bool isStandingUp { get; set; } = false;
 
     // Start is called before the first frame update
     void Start()

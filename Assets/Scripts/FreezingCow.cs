@@ -11,11 +11,18 @@ public class FreezingCow : NormalCow
     FreezingCow freezingCow;
     ParticleSystem frostEffect;
 
+    private void Awake()
+    {
+        type = CowType.FREEZING;
+        capturedByFaction = GameManager.PlayerFaction.NONE;
+        isPickedUp = false;
+        isFrozen = false;
+        isDead = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        type = CowType.FREEZING;
-
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {
