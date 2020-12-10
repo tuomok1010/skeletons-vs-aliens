@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 87dc8a3e743795044a150c3fcec31b94, type: 2}
+    - target: {fileID: 1325140604538870649, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1454749882746112458, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -71,6 +75,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2404536590112527139, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2913790596895466040, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_Icon
       value: 
@@ -82,6 +90,14 @@ PrefabInstance:
     - target: {fileID: 2913790596895466040, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_TagString
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042744465925244836, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_Name
+      value: SoucerReticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042744465925244836, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3284204007656267406, guid: 30bc90622edd18946aceb9db5b4cf2f2, type: 3}
       propertyPath: m_IsActive
