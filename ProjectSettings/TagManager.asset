@@ -13,6 +13,7 @@ TagManager:
   - Player2CablePoints
   - Ground
   - Claw
+  - FreezeArea
   layers:
   - Default
   - TransparentFX

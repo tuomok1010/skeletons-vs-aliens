@@ -25,6 +25,7 @@ public class HotCow : NormalCow
         isFrozen = false;
         isDead = false;
         isActivated = false;
+        isInFreezeArea = false;
 
         if (!isActivated)
         {

@@ -19,6 +19,7 @@ public class FreezingCow : NormalCow
         isFrozen = false;
         isDead = false;
         isActivated = false;
+        isInFreezeArea = false;
 
         if (!isActivated)
         {
@@ -75,7 +76,7 @@ public class FreezingCow : NormalCow
 
         if (effectReady)
         {
-            if(capturedByFaction != GameManager.PlayerFaction.NONE)
+            if(capturedByFaction != GameManager.PlayerFaction.NONE && isInFreezeArea)
             {
                 effectReady = false;
                 FreezeAllCowsBelongingToFaction(capturedByFaction);
@@ -98,7 +99,7 @@ public class FreezingCow : NormalCow
         for (int i = 0; i < cows.Length; ++i)
         {
             NormalCow cow = cows[i].GetComponent<NormalCow>();
-            if(cow.capturedByFaction == faction)
+            if(cow.capturedByFaction == faction && cow.isInFreezeArea)
             {
                 cow.Freeze();
             }

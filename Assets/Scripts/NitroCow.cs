@@ -28,6 +28,7 @@ public class NitroCow : NormalCow
         isActivated = false;
         enableCollisionDamage = true;
         collisionVelocityToDie = explosionEffect.explosionSensitivity;
+        isInFreezeArea = false;
     }
 
     // Start is called before the first frame update

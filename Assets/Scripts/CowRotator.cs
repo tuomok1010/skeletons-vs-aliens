@@ -49,6 +49,7 @@ public class CowRotator : MonoBehaviour
 
         if (collision.gameObject.tag == "Claw")
         {
+            rb.constraints = RigidbodyConstraints.None;
             isCollidingWithClaw = true;
         }
 

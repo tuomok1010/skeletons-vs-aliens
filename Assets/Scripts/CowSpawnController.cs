@@ -208,8 +208,8 @@ public class CowSpawnController : MonoBehaviour
         if (dir == CowMovementController.Direction.LEFT)
             rotationAmount = -rotationAmount;
 
-        Debug.Log("Launching " + type + " with forward force: " + forwardForce + " upward force: " + upwardForce +
-            " rotation: " + rotationAmount);
+        //Debug.Log("Launching " + type + " with forward force: " + forwardForce + " upward force: " + upwardForce +
+        //    " rotation: " + rotationAmount);
 
         Rigidbody rb = cow.transform.Find("MOOMOO").GetComponent<Rigidbody>();
         Quaternion deltaRotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, rotationAmount));

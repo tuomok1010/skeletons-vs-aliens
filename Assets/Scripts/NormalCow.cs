@@ -24,6 +24,7 @@ public class NormalCow : MonoBehaviour
     public CowType type { get; set; }
     public bool isPickedUp { get; set; }        // is the cow currently picked up by the claw             
     public bool isFrozen { get; set; }
+    public bool isInFreezeArea { get; set; }
     public bool isDead { get; set; }
     public bool isActivated { get; set; }       // cow gets activated when it first collides with ground after being launched from spawn
     public GameManager.PlayerFaction capturedByFaction { get; set; }
@@ -47,6 +48,7 @@ public class NormalCow : MonoBehaviour
         isFrozen = false;
         isDead = false;
         isActivated = false;
+        isInFreezeArea = false;
 
         if (!isActivated)
         {
@@ -113,6 +115,24 @@ public class NormalCow : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "FreezeArea")
+        {
+            //Debug.Log("isInFreezeArea set to true");
+            isInFreezeArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "FreezeArea")
+        {
+            //Debug.Log("isInFreezeArea set to false");
+            isInFreezeArea = false;
+        }
+    }
+
     public void HandleDeath()
     {
         if (isDead && bloodEffect.isStopped)
@@ -170,7 +190,6 @@ public class NormalCow : MonoBehaviour
         if(transform.position.x < minLevelXCoord || transform.position.x > maxLevelXCoord || 
             transform.position.z < minLevelZCoord || transform.position.z > maxLevelZCoord)
         {
-            Debug.Log(gameObject.name + " out of level bounds!");
             return true;
         }
         else

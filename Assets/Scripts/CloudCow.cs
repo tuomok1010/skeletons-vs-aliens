@@ -16,6 +16,8 @@ public class CloudCow : NormalCow
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+        isActivated = false;
+        isInFreezeArea = false;
 
         if (!isActivated)
         {
