@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// IMPORTANT: the coordinates of the cow are different from Unity's coordinates. Instead of y being up, the up coordinate
+// of the cow is z !!!
+
 public class CowMovementController : MonoBehaviour
 {
-    enum Direction
+    public enum Direction
     {
         LEFT,
         RIGHT
@@ -105,6 +108,9 @@ public class CowMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!cow.isActivated)
+            return;
+
         if (cow.isFrozen)
             return;
 
@@ -134,7 +140,14 @@ public class CowMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!cow.isActivated)
+            return;
+
         if (cow.isFrozen)
+            return;
+
+        // NOTE: we do not want to move captured cows
+        if (cow.capturedByFaction != GameManager.PlayerFaction.NONE)
             return;
 
         if (rotator.isCollidingWithClaw)
@@ -211,7 +224,7 @@ public class CowMovementController : MonoBehaviour
         if (turnDirection == Direction.LEFT)
             turnForce = -turnForce;
 
-        numHops = Random.Range(minHopsPerDirection, maxHopsPerDirection);
+        numHops = Random.Range(minHopsPerDirection, maxHopsPerDirection + 1);
 
         //Debug.Log("New direction: " + turnDirection + " New turn force: " + turnForce + " New num hops: " + numHops);
     }

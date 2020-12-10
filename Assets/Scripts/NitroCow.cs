@@ -25,6 +25,7 @@ public class NitroCow : NormalCow
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+        isActivated = false;
         enableCollisionDamage = true;
         collisionVelocityToDie = explosionEffect.explosionSensitivity;
     }
@@ -57,11 +58,19 @@ public class NitroCow : NormalCow
         {
             Debug.Log("Error! Could not find sparksEffect on " + gameObject.name);
         }
+
+        if (!isActivated)
+        {
+            IgnoreSpawnWallCollisions(true);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (IsOutOfLevelBounds(minLevelXCoord, maxLevelXCoord, minLevelZCoord, maxLevelZCoord) && isActivated)
+            isDead = true;
+
         HandleDeath();
 
         if (isFrozen)
@@ -76,6 +85,17 @@ public class NitroCow : NormalCow
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!isActivated)
+        {         
+            if (collision.gameObject.tag == "Ground")
+            {
+                isActivated = true;
+                IgnoreSpawnWallCollisions(false);
+                rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            }
+            return;
+        }
+
         if (enableCollisionDamage)
         {
             float relativeVelocityMagnitude = collision.relativeVelocity.magnitude;

@@ -31,6 +31,9 @@ public class CowRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!cow.isActivated)
+            return;
+
         isStandingUp = CheckIfStandingUp();
 
         if (!isStandingUp && !isCollidingWithClaw && !cow.isFrozen && rb.velocity.magnitude <= 0.05f)
@@ -41,6 +44,9 @@ public class CowRotator : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!cow.isActivated)
+            return;
+
         if (collision.gameObject.tag == "Claw")
         {
             isCollidingWithClaw = true;
@@ -54,6 +60,9 @@ public class CowRotator : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        if (!cow.isActivated)
+            return;
+
         if (collision.gameObject.tag == "Claw")
         {
             isCollidingWithClaw = false;

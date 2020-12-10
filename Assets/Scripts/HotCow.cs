@@ -24,6 +24,12 @@ public class HotCow : NormalCow
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+        isActivated = false;
+
+        if (!isActivated)
+        {
+            IgnoreSpawnWallCollisions(true);
+        }
     }
 
     // Start is called before the first frame update
@@ -59,6 +65,9 @@ public class HotCow : NormalCow
     // Update is called once per frame
     void Update()
     {
+        if (IsOutOfLevelBounds(minLevelXCoord, maxLevelXCoord, minLevelZCoord, maxLevelZCoord) && isActivated)
+            isDead = true;
+
         HandleDeath();
 
         if (isFrozen)

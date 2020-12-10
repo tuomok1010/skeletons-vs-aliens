@@ -25,12 +25,19 @@ public class NormalCow : MonoBehaviour
     public bool isPickedUp { get; set; }        // is the cow currently picked up by the claw             
     public bool isFrozen { get; set; }
     public bool isDead { get; set; }
+    public bool isActivated { get; set; }       // cow gets activated when it first collides with ground after being launched from spawn
     public GameManager.PlayerFaction capturedByFaction { get; set; }
     public GameObject clawOwner { get; set; }   // if the cow is picked up, this is the owner of the claw
 
     protected Rigidbody rb;
     protected ParticleSystem bloodEffect;
     protected float timeElapsedFrozen = 0.0f;
+
+    // these are the global bounds of the field where the cows are. If an active cow is out of bounds, it will be destroyed.
+    protected float minLevelXCoord = -12.6f;
+    protected float maxLevelXCoord = 12.6f;
+    protected float minLevelZCoord = -8.9f;
+    protected float maxLevelZCoord = 8.9f;
 
     private void Awake()
     {
@@ -39,6 +46,12 @@ public class NormalCow : MonoBehaviour
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+        isActivated = false;
+
+        if (!isActivated)
+        {
+            IgnoreSpawnWallCollisions(true);
+        }
     }
 
     // Start is called before the first frame update
@@ -60,6 +73,9 @@ public class NormalCow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IsOutOfLevelBounds(minLevelXCoord, maxLevelXCoord, minLevelZCoord, maxLevelZCoord) && isActivated)
+            isDead = true;
+
         HandleDeath();
 
         if(isFrozen)
@@ -74,6 +90,17 @@ public class NormalCow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(!isActivated)
+        {
+            if (collision.gameObject.tag == "Ground")
+            {
+                isActivated = true;
+                IgnoreSpawnWallCollisions(false);
+                rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            }
+            return;
+        }
+
         if(enableCollisionDamage)
         {
             float relativeVelocityMagnitude = collision.relativeVelocity.magnitude;
@@ -121,5 +148,34 @@ public class NormalCow : MonoBehaviour
         isFrozen = false;
         rb.isKinematic = false; // enable physics again
         timeElapsedFrozen = 0.0f;
+    }
+
+    protected void IgnoreSpawnWallCollisions(bool ignore)
+    {
+        int cowCollisionLayer = LayerMask.NameToLayer("Cow");
+        int cowHookCollisionLayer = LayerMask.NameToLayer("CowHookCollision");
+
+        int spawnWallCollisionLayer = LayerMask.NameToLayer("SpawnWallCollider");
+        int playerWallCollisionLayer = LayerMask.NameToLayer("Player");
+
+        Physics.IgnoreLayerCollision(cowCollisionLayer, spawnWallCollisionLayer, ignore);
+        Physics.IgnoreLayerCollision(cowHookCollisionLayer, spawnWallCollisionLayer, ignore);
+
+        Physics.IgnoreLayerCollision(cowCollisionLayer, playerWallCollisionLayer, ignore);
+        Physics.IgnoreLayerCollision(cowHookCollisionLayer, playerWallCollisionLayer, ignore);
+    }
+
+    protected bool IsOutOfLevelBounds(float minLevelXCoord, float maxLevelXCoord, float minLevelZCoord, float maxLevelZCoord)
+    {
+        if(transform.position.x < minLevelXCoord || transform.position.x > maxLevelXCoord || 
+            transform.position.z < minLevelZCoord || transform.position.z > maxLevelZCoord)
+        {
+            Debug.Log(gameObject.name + " out of level bounds!");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

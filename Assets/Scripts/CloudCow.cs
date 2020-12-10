@@ -16,6 +16,11 @@ public class CloudCow : NormalCow
         isPickedUp = false;
         isFrozen = false;
         isDead = false;
+
+        if (!isActivated)
+        {
+            IgnoreSpawnWallCollisions(true);
+        }
     }
 
     // Start is called before the first frame update
@@ -46,6 +51,9 @@ public class CloudCow : NormalCow
 
     private void Update()
     {
+        if (IsOutOfLevelBounds(minLevelXCoord, maxLevelXCoord, minLevelZCoord, maxLevelZCoord) && isActivated)
+            isDead = true;
+
         HandleDeath();
 
         if (isFrozen)

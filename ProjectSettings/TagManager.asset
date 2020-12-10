@@ -28,7 +28,7 @@ TagManager:
   - Vehicle
   - Player
   - Ground
-  - 
+  - SpawnWallCollider
   - 
   - 
   - 
