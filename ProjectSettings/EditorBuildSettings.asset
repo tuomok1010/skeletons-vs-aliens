@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Preload.unity
     guid: 5a7f6e35ffd0ab3458a7daf8ffdd2442
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TuomoTestNew.unity
     guid: 1d31c8aed4a00dd46a8cf06cdcdf347e
+  - enabled: 1
+    path: Assets/Scenes/NewMikaTest.unity
+    guid: c42a6d481474b214a80c3cd56980c89a
   m_configObjects: {}

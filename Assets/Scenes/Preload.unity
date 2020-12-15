@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSettings:
-    gameTimeInSeconds: 60
+    gameTimeInSeconds: 90
 --- !u!114 &1287906430
 MonoBehaviour:
   m_ObjectHideFlags: 0
