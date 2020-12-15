@@ -92,16 +92,30 @@ public class FreezingCow : NormalCow
         cooldownTimeElapsed += Time.deltaTime;
     }
 
-    void FreezeAllCowsBelongingToFaction(GameManager.PlayerFaction faction)
+    public static void FreezeAllCowsBelongingToFaction(GameManager.PlayerFaction faction)
     {
         GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
 
         for (int i = 0; i < cows.Length; ++i)
         {
             NormalCow cow = cows[i].GetComponent<NormalCow>();
-            if(cow.capturedByFaction == faction && cow.isInFreezeArea)
+            if(cow && cow.capturedByFaction == faction && cow.isInFreezeArea)
             {
                 cow.Freeze();
+            }
+        }
+    }
+
+    public static void UnfreezeAllCowsBelongingToFaction(GameManager.PlayerFaction faction)
+    {
+        GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
+
+        for (int i = 0; i < cows.Length; ++i)
+        {
+            NormalCow cow = cows[i].GetComponent<NormalCow>();
+            if (cow && cow.capturedByFaction == faction && cow.isInFreezeArea)
+            {
+                cow.Unfreeze();
             }
         }
     }

@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
         MENU,
         GAME,
         PAUSE,
-        EXIT
+        END,
+        EXIT,
+        MENU_TO_GAME_TRANSITION,
+        GAME_TO_MENU_TRANSITION
     }
 
     public enum PlayerFaction
@@ -20,20 +23,51 @@ public class GameManager : MonoBehaviour
         ALIENS = 2
     }
 
+    [System.Serializable] public struct GameSettings
+    {
+        public int gameTimeInSeconds;
+    }
+
     public struct PlayerInfo
     {
         public int score;
+        public int nNormalCowsCaptured;
+        public int nFreezingCowsCaptured;
+        public int nHotCowsCaptured;
+        public int nNitroCowsCaptured;
+        public int nCloudCowsCaptured;
     }
 
     public static GameState gameState;
     public static PlayerInfo skeletons;
     public static PlayerInfo aliens;
+    public static int gameTimer;
+    public static int gameTimeInSeconds;
+
+    public GameSettings gameSettings;
+
+    float timeElapsedInGame;
 
     private void Awake()
     {
         gameState = GameState.MENU;
+        gameTimeInSeconds = gameSettings.gameTimeInSeconds;
+        timeElapsedInGame = 0.0f;
+        gameTimer = gameSettings.gameTimeInSeconds;
+
         skeletons.score = 0;
+        skeletons.nNormalCowsCaptured = 0;
+        skeletons.nFreezingCowsCaptured = 0;
+        skeletons.nHotCowsCaptured = 0;
+        skeletons.nNitroCowsCaptured = 0;
+        skeletons.nCloudCowsCaptured = 0;
+
         aliens.score = 0;
+        aliens.nNormalCowsCaptured = 0;
+        aliens.nFreezingCowsCaptured = 0;
+        aliens.nHotCowsCaptured = 0;
+        aliens.nNitroCowsCaptured = 0;
+        aliens.nCloudCowsCaptured = 0;
     }
 
     // Start is called before the first frame update
@@ -46,7 +80,50 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameState == GameState.GAME)
+            RunGameLogic();
+        else if (gameState == GameState.PAUSE)
+            RunPauseLogic();
+        else if (gameState == GameState.EXIT)
+            RunExitLogic();
+    }
+
+    void RunGameLogic()
+    {
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameState = GameState.PAUSE;
+            PauseGame();
+        }
+        else
+        {
+            timeElapsedInGame += Time.deltaTime;
+
+            if (timeElapsedInGame >= 1.0f)
+            {
+                --gameTimer;
+                timeElapsedInGame = 0.0f;
+
+                if (gameTimer < 0)
+                {
+                    gameState = GameState.GAME_TO_MENU_TRANSITION;
+                }
+            }
+        }
+    }
+
+    void RunPauseLogic()
+    {
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameState = GameState.GAME;
+            UnpauseGame();
+        }
+    }
+
+    void RunExitLogic()
+    {
+        ExitGame();
     }
 
     public static void PauseGame()
@@ -66,16 +143,34 @@ public class GameManager : MonoBehaviour
 
     public static void RestartGame()
     {
+        //skeletons.score = 0;
+        //skeletons.nNormalCowsCaptured = 0;
+        //skeletons.nFreezingCowsCaptured = 0;
+        //skeletons.nHotCowsCaptured = 0;
+        //skeletons.nNitroCowsCaptured = 0;
+        //skeletons.nCloudCowsCaptured = 0;
+
+        //aliens.score = 0;
+        //aliens.nNormalCowsCaptured = 0;
+        //aliens.nFreezingCowsCaptured = 0;
+        //aliens.nHotCowsCaptured = 0;
+        //aliens.nNitroCowsCaptured = 0;
+        //aliens.nCloudCowsCaptured = 0;
+
+        //gameTimer = gameTimeInSeconds;
+
         SceneManager.LoadScene(0);
     }
 
     public static void RestartScene()
     {
+        Debug.Log("Loading scene " + SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
     public static void ExitGame()
     {
+        Debug.Log("Quitting application!");
         Application.Quit();
     }
 

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1287906429}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: GameController
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98312439ed8a2094c8af31be7f62d2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings:
+    gameTimeInSeconds: 60
 --- !u!114 &1287906430
 MonoBehaviour:
   m_ObjectHideFlags: 0

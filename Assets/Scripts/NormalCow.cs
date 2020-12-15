@@ -40,6 +40,7 @@ public class NormalCow : MonoBehaviour
     protected float minLevelZCoord = -8.9f;
     protected float maxLevelZCoord = 8.9f;
 
+    
     private void Awake()
     {
         type = CowType.NORMAL;
