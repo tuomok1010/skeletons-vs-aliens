@@ -143,7 +143,9 @@ public class NitroCow : NormalCow
                 // NOTE: CowRotator.cs manipulates constraints. We need to make sure there are no constraints
                 // when the cow is about to take explosion force
                 if(objectRb.gameObject.tag == "Cow")
+                {
                     objectRb.constraints = RigidbodyConstraints.None;
+                }
 
                 if(objectRb != rb)
                 {

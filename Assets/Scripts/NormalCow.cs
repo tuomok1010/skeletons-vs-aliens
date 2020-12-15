@@ -177,13 +177,13 @@ public class NormalCow : MonoBehaviour
         int cowHookCollisionLayer = LayerMask.NameToLayer("CowHookCollision");
 
         int spawnWallCollisionLayer = LayerMask.NameToLayer("SpawnWallCollider");
-        int playerWallCollisionLayer = LayerMask.NameToLayer("Player");
+        //int playerWallCollisionLayer = LayerMask.NameToLayer("Player");
 
         Physics.IgnoreLayerCollision(cowCollisionLayer, spawnWallCollisionLayer, ignore);
         Physics.IgnoreLayerCollision(cowHookCollisionLayer, spawnWallCollisionLayer, ignore);
 
-        Physics.IgnoreLayerCollision(cowCollisionLayer, playerWallCollisionLayer, ignore);
-        Physics.IgnoreLayerCollision(cowHookCollisionLayer, playerWallCollisionLayer, ignore);
+        //Physics.IgnoreLayerCollision(cowCollisionLayer, playerWallCollisionLayer, ignore);
+        //Physics.IgnoreLayerCollision(cowHookCollisionLayer, playerWallCollisionLayer, ignore);
     }
 
     protected bool IsOutOfLevelBounds(float minLevelXCoord, float maxLevelXCoord, float minLevelZCoord, float maxLevelZCoord)

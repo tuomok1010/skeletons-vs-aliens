@@ -64,6 +64,9 @@ public class CowSpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameState != GameManager.GameState.GAME)
+            return;
+
         timeElapsed += Time.deltaTime;
 
         if(timeElapsed >= spawnSettings.cowSpawnRateInSeconds)

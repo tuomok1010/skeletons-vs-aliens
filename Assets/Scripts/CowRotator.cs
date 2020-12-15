@@ -73,7 +73,7 @@ public class CowRotator : MonoBehaviour
     void StandUp()
     {
         // basically all this alligns z axis with world up vector
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+        rb.constraints = RigidbodyConstraints.FreezeAll;  // NOTE: this causes hook to freeze when collecting rotating cow
         Quaternion upRot = Quaternion.FromToRotation(transform.forward, Vector3.up);
         upRot *= transform.rotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, upRot, Time.deltaTime);
