@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62960a3f83b473f4ca85d2923d70a068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 10
+  scoreValue: 20
   freezeTimeInSeconds: 10
   enableBlood: 0
   enableCollisionDamage: 1
@@ -78,6 +78,10 @@ PrefabInstance:
     - target: {fileID: 4069398870301416559, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_Name
       value: NitroMooMoo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929991908233746012, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6894749406616883853, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_Materials.Array.data[0]
