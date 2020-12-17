@@ -35936,6 +35936,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dc2259dc1d794f04ba33924c3a9f556a, type: 3}
   m_PrefabInstance: {fileID: 888175584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1873352989
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1943527944}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_RootOrder
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 400.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 400.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 56.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49301443
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.49301443
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5068893
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5068893
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
+      propertyPath: m_Name
+      value: _P_Rock (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f1cd201d03606d40a6cf2d4ddeabc98, type: 3}
 --- !u!4 &1875010520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dc2259dc1d794f04ba33924c3a9f556a, type: 3}
@@ -40263,6 +40332,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1538258586, guid: d5f857a05340f31418d79b6b05d99a93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.53003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538258586, guid: d5f857a05340f31418d79b6b05d99a93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24.859985
+      objectReference: {fileID: 0}
     - target: {fileID: 30160312603908314, guid: d5f857a05340f31418d79b6b05d99a93, type: 3}
       propertyPath: hotCow
       value: 
