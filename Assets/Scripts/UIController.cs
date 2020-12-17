@@ -50,6 +50,10 @@ public class UIController : MonoBehaviour
     TextMeshProUGUI aliensCloudCowsCaptured;
     TextMeshProUGUI aliensFinalScore;
 
+    GameObject creditsPanel;
+
+    bool toggleCredits = false;
+
     private void Awake()
     {
         menuPlayButtonAnimator = menuPlayButton.GetComponent<Animator>();
@@ -147,6 +151,10 @@ public class UIController : MonoBehaviour
             endUIPanel.transform.Find("AliensPanel").Find("AliensTotalScore").GetComponent<TextMeshProUGUI>();
         if (!skeletonsFinalScore)
             Debug.Log("Error! In MenuUIController: void Awake(): Could not find aliensFinalScore");
+
+        creditsPanel = menuUIPanel.transform.Find("CreditsPanel").gameObject;
+        if(!creditsPanel)
+            Debug.Log("Error! In MenuUIController: void Awake(): Could not find creditsPanel");
     }
 
     // Start is called before the first frame update
@@ -167,6 +175,11 @@ public class UIController : MonoBehaviour
                 DisableEndUI();
                 EnableMenuUI();
 
+                if (toggleCredits)
+                    EnableCreditsPanel();
+                else
+                    DisableCreditsPanel();
+
             } break;
 
             case GameManager.GameState.GAME:
@@ -174,6 +187,7 @@ public class UIController : MonoBehaviour
                 DisableMenuUI();
                 DisablePauseUI();
                 DisableEndUI();
+                DisableCreditsPanel();
                 EnableGameUI();
 
                 UpdateScores();
@@ -186,6 +200,7 @@ public class UIController : MonoBehaviour
                 DisableMenuUI();
                 DisableGameUI();
                 DisableEndUI();
+                DisableCreditsPanel();
                 EnablePauseUI();
 
             } break;
@@ -195,6 +210,7 @@ public class UIController : MonoBehaviour
                 DisableMenuUI();
                 DisableGameUI();
                 DisablePauseUI();
+                DisableCreditsPanel();
                 EnableEndUI();
 
                 UpdateFinalScores();
@@ -207,6 +223,7 @@ public class UIController : MonoBehaviour
                 DisableGameUI();
                 DisablePauseUI();
                 DisableEndUI();
+                DisableCreditsPanel();
 
             } break;
 
@@ -279,6 +296,16 @@ public class UIController : MonoBehaviour
     void DisableEndUI()
     {
         endUIPanel.SetActive(false);
+    }
+
+    void EnableCreditsPanel()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    void DisableCreditsPanel()
+    {
+        creditsPanel.SetActive(false);
     }
 
     // menu play button mouse events
@@ -431,5 +458,11 @@ public class UIController : MonoBehaviour
         pauseRestartButtonAnimator.SetTrigger("TriggerDefault");
     }
     /////////////////////////////////////
+    
+    
+    public void ToggleCredits()
+    {
+        toggleCredits = !toggleCredits;
+    }
 
 }

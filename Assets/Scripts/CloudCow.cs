@@ -49,6 +49,12 @@ public class CloudCow : NormalCow
         {
             originalParticleRotation = cloudEffect.transform.rotation;
         }
+
+        cowFreezeEffect = transform.Find("CowFreezeEffect").Find("ColdVapour").gameObject.GetComponent<ParticleSystem>();
+        if (!cowFreezeEffect)
+        {
+            Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
+        }
     }
 
     private void Update()

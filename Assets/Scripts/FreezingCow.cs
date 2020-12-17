@@ -55,6 +55,12 @@ public class FreezingCow : NormalCow
             frostEffect.Play();
         } 
         */
+
+        cowFreezeEffect = transform.Find("CowFreezeEffect").Find("ColdVapour").gameObject.GetComponent<ParticleSystem>();
+        if (!cowFreezeEffect)
+        {
+            Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
+        }
     }
 
     // Update is called once per frame

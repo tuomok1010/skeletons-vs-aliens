@@ -20,6 +20,9 @@ public class CowMovementController : MonoBehaviour
 
         public float minTurnRotationInDegrees;
         public float maxTurnRotationInDegrees;
+
+        public float minWaitTimeBeforeMoving;
+        public float maxWaitTimeBeforeMoving;
     }
 
     [SerializeField] MovementSettings movementSettings;
@@ -42,6 +45,10 @@ public class CowMovementController : MonoBehaviour
     float turnDuration;
     float timeElapsedTurning;
     float turnForce;
+
+    bool isWaiting = false;
+    float timeElapsedWaiting = 0.0f;
+    float waitTime = 0.0f;
 
     Direction turnDirection;
 
@@ -121,6 +128,17 @@ public class CowMovementController : MonoBehaviour
         if (rotator.isCollidingWithClaw)
             return;
 
+        if (isWaiting)
+        {
+            timeElapsedWaiting += Time.deltaTime;
+            if (timeElapsedWaiting >= waitTime)
+            {
+                isWaiting = false;
+                timeElapsedWaiting = 0.0f;
+            }
+            return;
+        }
+
         timeElapsedBetweenHops += Time.deltaTime;
         bool isFacingObstacle = IsFacingObstacle();
 
@@ -151,6 +169,9 @@ public class CowMovementController : MonoBehaviour
             return;
 
         if (rotator.isCollidingWithClaw)
+            return;
+
+        if (isWaiting)
             return;
 
         if (isMoving)
@@ -192,6 +213,10 @@ public class CowMovementController : MonoBehaviour
 
             RandomizeMovementValues(movementSettings.minTurnRotationInDegrees, movementSettings.maxTurnRotationInDegrees,
                 movementSettings.minHopsPerDirection, movementSettings.maxHopsPerDirection);
+
+            RandomizeWaitTime(movementSettings.minWaitTimeBeforeMoving, movementSettings.maxWaitTimeBeforeMoving);
+
+            isWaiting = true;
         }
     }
 
@@ -227,5 +252,10 @@ public class CowMovementController : MonoBehaviour
         numHops = Random.Range(minHopsPerDirection, maxHopsPerDirection + 1);
 
         //Debug.Log("New direction: " + turnDirection + " New turn force: " + turnForce + " New num hops: " + numHops);
+    }
+
+    void RandomizeWaitTime(float minWaitTime, float maxWaitTime)
+    {
+        waitTime = Random.Range(minWaitTime, maxWaitTime);
     }
 }
