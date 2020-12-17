@@ -60,6 +60,12 @@ public class NitroCow : NormalCow
             Debug.Log("Error! Could not find sparksEffect on " + gameObject.name);
         }
 
+        cowFreezeEffect = transform.Find("CowFreezeEffect").Find("ColdVapour").gameObject.GetComponent<ParticleSystem>();
+        if (!cowFreezeEffect)
+        {
+            Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
+        }
+
         if (!isActivated)
         {
             IgnoreSpawnWallCollisions(true);
