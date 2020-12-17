@@ -32,6 +32,7 @@ public class NormalCow : MonoBehaviour
 
     protected Rigidbody rb;
     protected ParticleSystem bloodEffect;
+    protected ParticleSystem cowFreezeEffect;
     protected float timeElapsedFrozen = 0.0f;
 
     // these are the global bounds of the field where the cows are. If an active cow is out of bounds, it will be destroyed.
@@ -70,6 +71,12 @@ public class NormalCow : MonoBehaviour
         if(!bloodEffect)
         {
             Debug.Log("Error! Could not find bloodEffect on " + gameObject.name);
+        }
+
+        cowFreezeEffect = transform.Find("CowFreezeEffect").Find("ColdVapour").gameObject.GetComponent<ParticleSystem>();
+        if(!cowFreezeEffect)
+        {
+            Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
         }
     }
 
@@ -156,6 +163,7 @@ public class NormalCow : MonoBehaviour
         if(!isFrozen)
         {
             GetComponent<MeshRenderer>().material = frozenMaterial;
+            cowFreezeEffect.Play();
             rb.isKinematic = true;  // physics will not affect the cow, effectively "freezing" it in place
         }
 

@@ -61,6 +61,12 @@ public class HotCow : NormalCow
         {
             Debug.Log("Error! Could not find emberEffect on " + gameObject.name);
         }
+
+        cowFreezeEffect = transform.Find("CowFreezeEffect").Find("ColdVapour").gameObject.GetComponent<ParticleSystem>();
+        if (!cowFreezeEffect)
+        {
+            Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
+        }
     }
 
     // Update is called once per frame
