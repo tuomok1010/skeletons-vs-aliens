@@ -10858,7 +10858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &598631802 stripped
 Transform:
@@ -16498,6 +16498,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6562492630120193654, guid: 59261a0a0001c3e419c8134d6e67602a, type: 3}
   m_PrefabInstance: {fileID: 6328614755314543071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &858124148
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.5742395
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845802222099159147, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515484400004137681, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
+      propertyPath: m_Name
+      value: HotMooMoo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14b411809ac80a34e903c4de0838d5fe, type: 3}
 --- !u!1 &859050840
 GameObject:
   m_ObjectHideFlags: 0
@@ -32501,7 +32558,7 @@ Transform:
   - {fileID: 1161292205}
   - {fileID: 1243186178}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1727574996 stripped
 Transform:
