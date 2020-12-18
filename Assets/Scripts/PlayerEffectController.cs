@@ -16,6 +16,8 @@ public class PlayerEffectController : MonoBehaviour
     ECM.Controllers.BaseCharacterController BCC;
     TrailRenderer[] speedEffects;
 
+    AudioSource speedEffectSound;
+
     float playerOldMaxLateralSpeed;
     float playerOldSpeed;
     float playerOldAcceleration;
@@ -45,6 +47,12 @@ public class PlayerEffectController : MonoBehaviour
             Debug.Log("Error! Could not find speedEffects in " + gameObject.name);
         }
 
+        speedEffectSound = transform.Find("SpeedEffectSound").GetComponent<AudioSource>();
+        if(!speedEffectSound)
+        {
+            Debug.Log("Error! Could not find speedEffectSound in " + gameObject.name);
+        }
+
         playerOldMaxLateralSpeed = CM.maxLateralSpeed;
         playerOldSpeed = BCC.speed;
         playerOldAcceleration = BCC.acceleration;
@@ -68,6 +76,8 @@ public class PlayerEffectController : MonoBehaviour
     // NOTE: This function will be called in HotCow.cs
     public void EnableSpeedBoost()
     {
+        speedEffectSound.Play();
+
         timeElapsedInSpeedEffect = 0.0f;
         hasSpeedBoost = true;
 
