@@ -17,6 +17,7 @@ public class NitroCow : NormalCow
     ParticleSystem fireballEffect;
     ParticleSystem sparksEffect;
     NitroCow nitroCow;
+    AudioSource explosionSound;
 
     private void Awake()
     {
@@ -70,6 +71,12 @@ public class NitroCow : NormalCow
         if (!mooSound)
         {
             Debug.Log("Error! Could not find mooSound on " + gameObject.name);
+        }
+
+        explosionSound = transform.Find("ExplosionSound").gameObject.GetComponent<AudioSource>();
+        if (!mooSound)
+        {
+            Debug.Log("Error! Could not find explosionSound on " + gameObject.name);
         }
 
         if (!isActivated)
@@ -140,7 +147,7 @@ public class NitroCow : NormalCow
 
     public new void HandleDeath()
     {
-        if (isDead && bloodEffect.isStopped && fireballEffect.isStopped && sparksEffect.isStopped)
+        if (isDead && bloodEffect.isStopped && fireballEffect.isStopped && sparksEffect.isStopped && !explosionSound.isPlaying)
         {
             // NOTE: OnTriggerExit() in BaseController will not be called when a cow is destroyed,
             //       that's why we need to do this here 
@@ -157,6 +164,10 @@ public class NitroCow : NormalCow
     void Explode()
     {
         Collider[] objects = Physics.OverlapSphere(gameObject.transform.position, explosionEffect.explosionRadius);
+
+        explosionSound.Play();
+
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         for(int i = 0; i < objects.Length; ++i)
         {
