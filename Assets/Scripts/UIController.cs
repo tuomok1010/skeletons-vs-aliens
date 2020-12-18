@@ -25,6 +25,11 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject pauseUIPanel;
     [SerializeField] GameObject endUIPanel;
 
+    [SerializeField] GameObject menuSounds;
+
+    AudioSource buttonClickSound;
+    AudioSource buttonMouseOverSound;
+
     Animator menuPlayButtonAnimator;
     Animator menuEscButtonAnimator;
     Animator endRestartButtonAnimator;
@@ -155,6 +160,14 @@ public class UIController : MonoBehaviour
         creditsPanel = menuUIPanel.transform.Find("CreditsPanel").gameObject;
         if(!creditsPanel)
             Debug.Log("Error! In MenuUIController: void Awake(): Could not find creditsPanel");
+
+        buttonClickSound = menuSounds.transform.Find("ButtonClick").GetComponent<AudioSource>();
+        if(!buttonClickSound)
+            Debug.Log("Error! In MenuUIController: void Awake(): Could not find buttonClickSound");
+
+        buttonMouseOverSound = menuSounds.transform.Find("ButtonMouseOver").GetComponent<AudioSource>();
+        if (!buttonMouseOverSound)
+            Debug.Log("Error! In MenuUIController: void Awake(): Could not find buttonMouseOverSound");
     }
 
     // Start is called before the first frame update
@@ -314,6 +327,8 @@ public class UIController : MonoBehaviour
         menuPlayButtonAnimator.ResetTrigger("TriggerDefault");
         menuPlayButtonAnimator.SetTrigger("TriggerRotate");
         menuEscButtonAnimator.SetTrigger("TriggerShrink");
+
+        buttonClickSound.Play();
     }
 
     public void MenuPlayButtonMouseEnter()
@@ -321,6 +336,8 @@ public class UIController : MonoBehaviour
         menuPlayButtonAnimator.ResetTrigger("TriggerRotate");
         menuPlayButtonAnimator.ResetTrigger("TriggerDefault");
         menuPlayButtonAnimator.SetTrigger("TriggerShake");
+
+        buttonMouseOverSound.Play();
     }
 
     public void MenuPlayButtonMouseExit()
@@ -339,6 +356,8 @@ public class UIController : MonoBehaviour
         menuEscButtonAnimator.SetTrigger("TriggerRotate");
 
         menuPlayButtonAnimator.SetTrigger("TriggerShrink");
+
+        buttonClickSound.Play();
     }
 
     public void MenuEscButtonMouseEnter()
@@ -346,6 +365,8 @@ public class UIController : MonoBehaviour
         menuEscButtonAnimator.ResetTrigger("TriggerRotate");
         menuEscButtonAnimator.ResetTrigger("TriggerDefault");
         menuEscButtonAnimator.SetTrigger("TriggerShake");
+
+        buttonMouseOverSound.Play();
     }
 
     public void MenuEscButtonMouseExit()
@@ -363,6 +384,8 @@ public class UIController : MonoBehaviour
         endRestartButtonAnimator.ResetTrigger("TriggerDefault");
         endRestartButtonAnimator.ResetTrigger("TriggerShake");
         endRestartButtonAnimator.SetTrigger("TriggerRotate");
+
+        buttonClickSound.Play();
     }
 
     public void EndRestartButtonMouseEnter()
@@ -370,6 +393,8 @@ public class UIController : MonoBehaviour
         endRestartButtonAnimator.ResetTrigger("TriggerRotate");
         endRestartButtonAnimator.ResetTrigger("TriggerDefault");
         endRestartButtonAnimator.SetTrigger("TriggerShake");
+
+        buttonMouseOverSound.Play();
     }
 
     public void EndRestartButtonMouseExit()
@@ -389,6 +414,8 @@ public class UIController : MonoBehaviour
 
         pauseEscButtonAnimator.SetTrigger("TriggerShrink");
         pauseRestartButtonAnimator.SetTrigger("TriggerShrink");
+
+        buttonClickSound.Play();
     }
 
     public void PausePlayButtonMouseEnter()
@@ -396,6 +423,8 @@ public class UIController : MonoBehaviour
         pausePlayButtonAnimator.ResetTrigger("TriggerRotate");
         pausePlayButtonAnimator.ResetTrigger("TriggerDefault");
         pausePlayButtonAnimator.SetTrigger("TriggerShake");
+
+        buttonMouseOverSound.Play();
     }
 
     public void PausePlayButtonMouseExit()
@@ -415,6 +444,8 @@ public class UIController : MonoBehaviour
 
         pausePlayButtonAnimator.SetTrigger("TriggerShrink");
         pauseRestartButtonAnimator.SetTrigger("TriggerShrink");
+
+        buttonClickSound.Play();
     }
 
     public void PauseEscButtonMouseEnter()
@@ -422,6 +453,8 @@ public class UIController : MonoBehaviour
         pauseEscButtonAnimator.ResetTrigger("TriggerRotate");
         pauseEscButtonAnimator.ResetTrigger("TriggerDefault");
         pauseEscButtonAnimator.SetTrigger("TriggerShake");
+
+        buttonMouseOverSound.Play();
     }
 
     public void PauseEscButtonMouseExit()
@@ -442,6 +475,8 @@ public class UIController : MonoBehaviour
 
         pauseEscButtonAnimator.SetTrigger("TriggerShrink");
         pausePlayButtonAnimator.SetTrigger("TriggerShrink");
+
+        buttonClickSound.Play();
     }
 
     public void PauseRestartButtonMouseEnter()
@@ -449,6 +484,8 @@ public class UIController : MonoBehaviour
         pauseRestartButtonAnimator.ResetTrigger("TriggerRotate");
         pauseRestartButtonAnimator.ResetTrigger("TriggerDefault");
         pauseRestartButtonAnimator.SetTrigger("TriggerShake");
+
+        buttonMouseOverSound.Play();
     }
 
     public void PauseRestartButtonMouseExit()
