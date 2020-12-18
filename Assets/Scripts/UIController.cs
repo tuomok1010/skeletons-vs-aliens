@@ -56,8 +56,9 @@ public class UIController : MonoBehaviour
     TextMeshProUGUI aliensFinalScore;
 
     GameObject creditsPanel;
+    GameObject controlsPanel;
 
-    bool toggleCredits = false;
+    bool toggleInfoScreen = false;
 
     private void Awake()
     {
@@ -161,6 +162,10 @@ public class UIController : MonoBehaviour
         if(!creditsPanel)
             Debug.Log("Error! In MenuUIController: void Awake(): Could not find creditsPanel");
 
+        controlsPanel = menuUIPanel.transform.Find("ControlsPanel").gameObject;
+        if (!creditsPanel)
+            Debug.Log("Error! In MenuUIController: void Awake(): Could not find controlsPanel");
+
         buttonClickSound = menuSounds.transform.Find("ButtonClick").GetComponent<AudioSource>();
         if(!buttonClickSound)
             Debug.Log("Error! In MenuUIController: void Awake(): Could not find buttonClickSound");
@@ -188,10 +193,16 @@ public class UIController : MonoBehaviour
                 DisableEndUI();
                 EnableMenuUI();
 
-                if (toggleCredits)
+                if (toggleInfoScreen)
+                {
                     EnableCreditsPanel();
+                    EnableControlsPanel();
+                }
                 else
+                {
                     DisableCreditsPanel();
+                    DisableControlsPanel();
+                }
 
             } break;
 
@@ -201,6 +212,7 @@ public class UIController : MonoBehaviour
                 DisablePauseUI();
                 DisableEndUI();
                 DisableCreditsPanel();
+                DisableControlsPanel();
                 EnableGameUI();
 
                 UpdateScores();
@@ -214,6 +226,7 @@ public class UIController : MonoBehaviour
                 DisableGameUI();
                 DisableEndUI();
                 DisableCreditsPanel();
+                DisableControlsPanel();
                 EnablePauseUI();
 
             } break;
@@ -224,6 +237,7 @@ public class UIController : MonoBehaviour
                 DisableGameUI();
                 DisablePauseUI();
                 DisableCreditsPanel();
+                DisableControlsPanel();
                 EnableEndUI();
 
                 UpdateFinalScores();
@@ -237,6 +251,7 @@ public class UIController : MonoBehaviour
                 DisablePauseUI();
                 DisableEndUI();
                 DisableCreditsPanel();
+                DisableControlsPanel();
 
             } break;
 
@@ -319,6 +334,16 @@ public class UIController : MonoBehaviour
     void DisableCreditsPanel()
     {
         creditsPanel.SetActive(false);
+    }
+
+    void EnableControlsPanel()
+    {
+        controlsPanel.SetActive(true);
+    }
+
+    void DisableControlsPanel()
+    {
+        controlsPanel.SetActive(false);
     }
 
     // menu play button mouse events
@@ -499,7 +524,7 @@ public class UIController : MonoBehaviour
     
     public void ToggleCredits()
     {
-        toggleCredits = !toggleCredits;
+        toggleInfoScreen = !toggleInfoScreen;
     }
 
 }
