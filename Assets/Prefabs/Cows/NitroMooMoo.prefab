@@ -23,7 +23,7 @@ MonoBehaviour:
     explosionForce: 550
     explosionRadius: 7
     upwardsForceModifier: 25
-    explosionSensitivity: 5
+    explosionSensitivity: 6
 --- !u!1 &2687642596095767156
 GameObject:
   m_ObjectHideFlags: 0
