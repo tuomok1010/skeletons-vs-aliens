@@ -10,6 +10,7 @@ public class FreezingCow : NormalCow
     float cooldownTimeElapsed = 0.0f;
     FreezingCow freezingCow;
     ParticleSystem frostEffect;
+    AudioSource frostSound;
 
     private void Awake()
     {
@@ -61,6 +62,18 @@ public class FreezingCow : NormalCow
         {
             Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
         }
+
+        mooSound = transform.Find("MooSound").gameObject.GetComponent<AudioSource>();
+        if (!mooSound)
+        {
+            Debug.Log("Error! Could not find mooSound on " + gameObject.name);
+        }
+
+        frostSound = transform.Find("FrostSound").gameObject.GetComponent<AudioSource>();
+        if(!frostSound)
+        {
+            Debug.Log("Error! Could not find frostSound on " + gameObject.name);
+        }
     }
 
     // Update is called once per frame
@@ -96,11 +109,15 @@ public class FreezingCow : NormalCow
         }
 
         cooldownTimeElapsed += Time.deltaTime;
+        timeElapsedBetweenMoos += Time.deltaTime;
     }
 
-    public static void FreezeAllCowsBelongingToFaction(GameManager.PlayerFaction faction)
+    public void FreezeAllCowsBelongingToFaction(GameManager.PlayerFaction faction)
     {
         GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
+
+        if(!frostSound.isPlaying)
+            frostSound.Play();
 
         for (int i = 0; i < cows.Length; ++i)
         {

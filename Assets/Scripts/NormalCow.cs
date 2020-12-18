@@ -35,6 +35,10 @@ public class NormalCow : MonoBehaviour
     protected ParticleSystem cowFreezeEffect;
     protected float timeElapsedFrozen = 0.0f;
 
+    protected AudioSource mooSound;
+    protected float timeElapsedBetweenMoos;
+    protected float timeBetweenMoos = 5.0f;
+
     // these are the global bounds of the field where the cows are. If an active cow is out of bounds, it will be destroyed.
     protected float minLevelXCoord = -12.6f;
     protected float maxLevelXCoord = 12.6f;
@@ -78,6 +82,12 @@ public class NormalCow : MonoBehaviour
         {
             Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
         }
+
+        mooSound = transform.Find("MooSound").gameObject.GetComponent<AudioSource>();
+        if(!mooSound)
+        {
+            Debug.Log("Error! Could not find mooSound on " + gameObject.name);
+        }
     }
 
     // Update is called once per frame
@@ -96,6 +106,8 @@ public class NormalCow : MonoBehaviour
                 Unfreeze();
             }
         }
+
+        timeElapsedBetweenMoos += Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -119,6 +131,15 @@ public class NormalCow : MonoBehaviour
                 if (enableBlood)
                     bloodEffect.Play();
                 isDead = true;
+            }
+        }
+
+        if(collision.gameObject.tag == "Claw")
+        {
+            if(timeElapsedBetweenMoos >= timeBetweenMoos)
+            {
+                mooSound.Play();
+                timeElapsedBetweenMoos = 0.0f;
             }
         }
     }

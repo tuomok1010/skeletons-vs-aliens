@@ -51,6 +51,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: f054db46d123d6b4db212c5ad6649d93, type: 2}
+    - target: {fileID: 3189375817894611322, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3189375817894611322, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e76d360d44a343343b2bcf010a4ab3ab, type: 3}
     - target: {fileID: 3689213470252811989, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -99,10 +107,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloudMooMoo
       objectReference: {fileID: 0}
+    - target: {fileID: 4929991908233746012, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6894749406616883853, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4adbe40a1d844a54eaa0acc450d2cb03, type: 2}
+    - target: {fileID: 7558494970754612497, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 39495528, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 70c6cc55da1d13e4988ba5b9c7ea4566, type: 3}

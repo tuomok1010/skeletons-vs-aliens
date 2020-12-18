@@ -67,6 +67,12 @@ public class HotCow : NormalCow
         {
             Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
         }
+
+        mooSound = transform.Find("MooSound").gameObject.GetComponent<AudioSource>();
+        if (!mooSound)
+        {
+            Debug.Log("Error! Could not find mooSound on " + gameObject.name);
+        }
     }
 
     // Update is called once per frame
@@ -126,5 +132,6 @@ public class HotCow : NormalCow
         }
 
         cooldownTimeElapsed += Time.deltaTime;
+        timeElapsedBetweenMoos += Time.deltaTime;
     }
 }

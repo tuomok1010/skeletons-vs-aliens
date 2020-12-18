@@ -55,6 +55,12 @@ public class CloudCow : NormalCow
         {
             Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
         }
+
+        mooSound = transform.Find("MooSound").gameObject.GetComponent<AudioSource>();
+        if (!mooSound)
+        {
+            Debug.Log("Error! Could not find mooSound on " + gameObject.name);
+        }
     }
 
     private void Update()
@@ -78,5 +84,7 @@ public class CloudCow : NormalCow
             cloudEffect.transform.SetPositionAndRotation(cloudEffect.transform.parent.position,
                 originalParticleRotation);
         }
+
+        timeElapsedBetweenMoos += Time.deltaTime;
     }
 }

@@ -66,6 +66,12 @@ public class NitroCow : NormalCow
             Debug.Log("Error! Could not find cowFreezeEffect on " + gameObject.name);
         }
 
+        mooSound = transform.Find("MooSound").gameObject.GetComponent<AudioSource>();
+        if (!mooSound)
+        {
+            Debug.Log("Error! Could not find mooSound on " + gameObject.name);
+        }
+
         if (!isActivated)
         {
             IgnoreSpawnWallCollisions(true);
@@ -88,6 +94,8 @@ public class NitroCow : NormalCow
                 Unfreeze();
             }
         }
+
+        timeElapsedBetweenMoos += Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -117,6 +125,15 @@ public class NitroCow : NormalCow
                 Explode();
 
                 isDead = true;
+            }
+        }
+
+        if (collision.gameObject.tag == "Claw")
+        {
+            if (timeElapsedBetweenMoos >= timeBetweenMoos)
+            {
+                mooSound.Play();
+                timeElapsedBetweenMoos = 0.0f;
             }
         }
     }
